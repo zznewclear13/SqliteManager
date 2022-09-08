@@ -36,7 +36,7 @@ int main()
 
 		std::cout << "\nReading data...\n";
 		std::vector<DatabaseStructs::User> findUsers{ userHelper.readData(1, "20220910") };
-		for (DatabaseStructs::User user : findUsers)
+		for (const DatabaseStructs::User& user : findUsers)
 		{
 			std::cout << user.toString() << '\n';
 		}
@@ -47,7 +47,7 @@ int main()
 
 		std::cout << "\nReading all data...\n";
 		std::vector<DatabaseStructs::User> allUsers{ userHelper.readAllData() };
-		for (DatabaseStructs::User user : allUsers)
+		for (const DatabaseStructs::User& user : allUsers)
 		{
 			std::cout << user.toString() << '\n';
 		}

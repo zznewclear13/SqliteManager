@@ -8,4 +8,4 @@
 
 ## 使用方法
 
-将`sqlite3.dll`复制到x64/Debug/和x64/Release/路径下，即可编译运行。
+在Visual Studio中打开SqliteManager.sln，按`F5`即可编译运行。
