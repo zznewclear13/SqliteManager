@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
 
-// All database structs must inherit from ISqliteStruct
+// All database structs must inherit from ISqliteStruct.
 class ISqliteStruct
 {
 public:
-	// Get total propery count frome database struct.
+	// Get total propery count from database struct.
 	virtual int getPropertyCount() const = 0;
 
 	// Get property name at propertyID.

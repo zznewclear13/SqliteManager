@@ -51,6 +51,9 @@ public:
 	std::vector<T> readData(int propertyID, const std::string& propertyValueStr);
 	// Read all data from current table.
 	std::vector<T> readAllData();
+
+	// For other operations.
+	void customCommand(const std::string& command, int(*callback)(void*, int, char**, char**), void* data)
 };
 
 SQLITE_STRUCT_TEMPLATE
@@ -211,4 +214,15 @@ std::vector<T> SqliteHelper<T>::readAllData()
 		sqlite3_free(m_ErrorMessage);
 	}
 	return dataList;
+}
+
+SQLITE_STRUCT_TEMPLATE
+void SqliteHelper<T>::customCommand(const std::string& command, int(*callback)(void*, int, char**, char**), void* data)
+{
+	int rc{ sqlite3_exec(m_Database, command.c_str(), callback, data, &m_ErrorMessage) };
+	if (rc != SQLITE_OK)
+	{
+		std::cout << "SQL ERROR: " << m_ErrorMessage << '\n';
+		sqlite3_free(m_ErrorMessage);
+	}
 }
