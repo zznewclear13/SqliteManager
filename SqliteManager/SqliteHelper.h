@@ -53,7 +53,7 @@ public:
 	std::vector<T> readAllData();
 
 	// For other operations.
-	void customCommand(const std::string& command, int(*callback)(void*, int, char**, char**), void* data)
+	void customCommand(const std::string& command, int(*callback)(void*, int, char**, char**), void* data);
 };
 
 SQLITE_STRUCT_TEMPLATE
